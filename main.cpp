@@ -129,19 +129,19 @@ HRESULT WINAPI hkDrawIndexedPrimitive(LPDIRECT3DDEVICE9 pDevice, D3DPRIMITIVETYP
 	return res;
 }
 
-//Code Inject
+//Performs code injection
 void HookDevice9Methods()
 {
 	HMODULE hD3D9 = GetModuleHandle("d3d9.dll");
 
-	oEndScene = (tEndScene)((DWORD)hD3D9 + endsc);
+	oEndScene = (tEndScene)((DWORD)hD3D9 + endsc); //Gets address of original function
 
 	jump_endscene[0] = 0xE9;
-	DWORD addr_endscene = (DWORD)hkEndScene - (DWORD)oEndScene - 5;	//Address of Inject
-	memcpy(jump_endscene + 1, &addr_endscene, sizeof(DWORD));
-	memcpy(codeFragment_endscene, oEndScene, 5);	//Save code for hook of original func
+	DWORD addr_endscene = (DWORD)hkEndScene - (DWORD)oEndScene - 5;	//Gets address of injection (where to jump)
+	memcpy(jump_endscene + 1, &addr_endscene, sizeof(DWORD));	//Adds address after 'jmp' opcode to get assembler instruction jmp [address]
+	memcpy(codeFragment_endscene, oEndScene, 5);	//Saves code for hook of original function
 	VirtualProtect(oEndScene, 8, PAGE_EXECUTE_READWRITE, &savedProtection_endscene);
-	memcpy(oEndScene, jump_endscene, 5);	//Replace code with jump to Inject
+	memcpy(oEndScene, jump_endscene, 5);	//Replaces address of original function with assembler instruction jmp [address] (jump to injection where hook is)
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
