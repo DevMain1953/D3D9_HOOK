@@ -26,7 +26,7 @@ void GetDevice9Methods()
 
 HRESULT WINAPI hkEndScene(LPDIRECT3DDEVICE9 pDevice)
 {
-	//Restore bytes of original func
+	//Restores bytes of original function
 	BYTE* codeDest = (BYTE*)oEndScene;
 	codeDest[0] = codeFragment_endscene[0];
 	*((DWORD*)(codeDest + 1)) = *((DWORD*)(codeFragment_endscene + 1));
