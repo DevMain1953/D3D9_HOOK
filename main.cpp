@@ -1,6 +1,6 @@
 #include "header.h"
 
-//Get Virtual Methods Table
+//Gets virtual method table using new created d3d9 device. We also create new empty window to use it to create d3d9 device
 void GetDevice9Methods()
 {
 	HWND hWnd = CreateWindowA("STATIC", "dummy", 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -24,6 +24,7 @@ void GetDevice9Methods()
 	CloseHandle(hWnd);
 }
 
+//Hooked function that will be executed instead of original function in the process
 HRESULT WINAPI hkEndScene(LPDIRECT3DDEVICE9 pDevice)
 {
 	//Restores bytes of original function
