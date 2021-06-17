@@ -73,8 +73,9 @@ HRESULT WINAPI hkEndScene(LPDIRECT3DDEVICE9 pDevice)
 		pFont->DrawTextA(0, strbuff, -1, &FRect, DT_CENTER | DT_NOCLIP, 0xFF00FF00);
 	}
 
-	HRESULT res = oEndScene(pDevice);	//Call original func
+	HRESULT res = oEndScene(pDevice);	//Calls original function
 
+	//Restores bytes of hooked function so process of the game will execute hooked function instead of original function 
 	codeDest[0] = jump_endscene[0];
 	*((DWORD*)(codeDest + 1)) = *((DWORD*)(jump_endscene + 1));
 	
