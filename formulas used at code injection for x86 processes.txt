@@ -1,3 +1,3 @@
 address of next original instruction = address of current original instruction + number of bytes for current original instruction;
 
-byte representation of cave address = cave address - address of current original instruction - 5 (bytes);
+byte representation of cave address = cave address - address of current original instruction - 5 (bytes for "jmp" opcode and cave address);
