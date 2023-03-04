@@ -1,0 +1,11 @@
+address of next instruction = address of current instruction + length of current instruction in bytes;
+
+near jump in x86:
+byte representation of destination address = destination address - address from where to jump - 5 (length of near jump instruction in bytes);
+
+near jump instruction in bytes: [E9 byte_representation_of_destination_address]
+near jump instruction in assembly language: [jump destination_address]
+
+far jump in x64:
+far jump instructuin in bytes: [FF 25 00 00 00 00 destination_address]
+far jump instruction in assembly language: [jmp destination_address]
