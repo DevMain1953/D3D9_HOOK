@@ -1,9 +1,9 @@
 address of next instruction = address of current instruction + length of current instruction in bytes;
 
 near jump in x86:
-relative offset in bytes for JMP opcode = destination address - address from where to jump - 5 (length of the instruction that is being replaced by the JMP in bytes);
+relative offset in bytes = destination address - address from where to jump - 5 (length of the instruction that is being replaced by the JMP in bytes);
 
-near jump instruction in bytes: [E9 byte_representation_of_destination_address]
+near jump instruction in bytes: [E9 relative_offset_in_bytes]
 near jump instruction in assembly language: [jmp destination_address]
 
 ==================================================================================================================================================
