@@ -1,0 +1,18 @@
+Method call:
+sum = calculatorObject.getSumOfTwoNumbers(first_number, second_number);
+
+Method call in assembly language:
+push second_number to stack
+push first_number to stack
+push calculatorObject to stack
+call getSumOfTwoNumbers
+
+register of processor = method result
+sum = register of processor
+
+==============================================================================
+
+What memory addresses can store:
+address = simple parameter (health, ammo in games)
+address (pointer) = other address
+address = bytes of instructions in assemble language (mov eax, 5)
