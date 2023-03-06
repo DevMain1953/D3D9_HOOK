@@ -15,4 +15,4 @@ sum = register of processor
 What memory addresses can store:
 address = simple parameter (health, ammo in games)
 address (pointer) = other address
-address = bytes of instruction in assemble language (mov eax, 5)
+address = bytes of instruction in assembly language (mov eax, 5)
