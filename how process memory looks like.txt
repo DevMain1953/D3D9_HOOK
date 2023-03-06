@@ -22,4 +22,4 @@ address = bytes of instruction in assembly language (mov eax, 5)
 class in OOP == structure in low level programming;
 
 address of target field in structure = address of structure object + offset to target field in bytes;
-value from field of structure = get value from (address of target field in structure);
+value from target field of structure = get value from (address of target field in structure);
