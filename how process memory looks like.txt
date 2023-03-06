@@ -1,5 +1,5 @@
 Method call:
-sum = calculatorObject.getSumOfTwoNumbers(first_number, second_number);
+int sum = calculatorObject.getSumOfTwoNumbers(first_number, second_number);
 
 Method call in assembly language:
 push second_number to stack
