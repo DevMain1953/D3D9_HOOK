@@ -16,3 +16,8 @@ What memory addresses can store:
 address = simple parameter (health, ammo in games)
 address (pointer) = other address
 address = bytes of instruction in assembly language (mov eax, 5)
+
+==============================================================================
+
+class in OOP = structure in low level programming;
+value from field of structure = address of structure object + offset to target field in bytes;
