@@ -139,7 +139,7 @@ void HookDevice9Methods()
 	oEndScene = (tEndScene)((DWORD)hD3D9 + endsc); //Gets address of original function
 
 	jump_endscene[0] = 0xE9;
-	DWORD addr_endscene = (DWORD)hkEndScene - (DWORD)oEndScene - 5;	//Gets address of injection (where to jump)
+	DWORD addr_endscene = (DWORD)hkEndScene - (DWORD)oEndScene - 5;	//Gets relative offset in bytes to address of injection (where to jump)
 	memcpy(jump_endscene + 1, &addr_endscene, sizeof(DWORD));	//Adds address after 'jmp' opcode to get assembler instruction jmp [address]
 	memcpy(codeFragment_endscene, oEndScene, 5);	//Saves address of original function
 	VirtualProtect(oEndScene, 8, PAGE_EXECUTE_READWRITE, &savedProtection_endscene);
